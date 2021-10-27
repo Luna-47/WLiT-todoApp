@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+
+    <% todoList.forEach((todo, index) => { %>
+      <div class="card" style="width: 18rem;">
+        <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+        <div class="card-body">
+          <h5 class="card-title"><%= todo.title %></h5>
+          <p class="card-text"><%= todo.description %></p>
+          <a href="/edit-todo/<%= todo._id %>" class="btn btn-primary">Edit</a>
+          <a href="/delete-todo/<%= todo._id %>" class="btn btn-primary">Delete</a>
+        </div>
+      </div>
+    <% }) %>
+    <br>
+    <a href="/add-todo" class="btn btn-primary">Add</a>
+  </body>
+</html>
